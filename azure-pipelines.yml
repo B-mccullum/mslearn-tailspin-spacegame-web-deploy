@@ -83,10 +83,10 @@ stages:
           steps:
           - download: current
             artifact: drop
-          - task: AzureRmWebAppDeployment@4
+          - task: AzureWebApp@1
             displayName: 'Azure App Service Deploy: website'
             inputs:
-            azureSubscription: 'Azure subscription 1(af60829c-b377-4e96-9b32-4407cc8980ff)'
-            appType: 'webAppLinux'
-            appName: '$(WebAppNameDev)'
-            package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+              azureSubscription: 'Azure subscription 1(af60829c-b377-4e96-9b32-4407cc8980ff)'
+              appType: 'webAppLinux'
+              appName: '$(WebAppNameDev)'
+              package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
